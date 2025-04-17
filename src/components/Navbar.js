@@ -3,37 +3,38 @@ import './Navbar.css';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-  const [isDarkMode,setIsDarkMode] = useState(false);
-  const darkmode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-  return (
-    
-    <div className="App">
-      <div className="burger-icon" onClick={toggleMenu}>
-        <div className={`bar ${isMenuOpen ? 'open' : ''}`}></div>
-        <div className={`bar ${isMenuOpen ? 'open' : ''}`}></div>
-        <div className={`bar ${isMenuOpen ? 'open' : ''}`}></div>
-      </div>
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-      <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
-        <div><ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
-          <li>
-            <a href="#" 
-            onClick={darkmode} 
-            className={`${isDarkMode ? 'on': ''}`}>Dark mode</a>
-          </li>
-        </ul>
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+
+  return (
+    <>
+      {/* Overlay for blur and blocking clicks */}
+      {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
+
+      <div className="navbar">
+        <div className="burger-icon" onClick={toggleMenu}>
+          <div className={`bar ${isMenuOpen ? 'open' : ''}`}></div>
+          <div className={`bar ${isMenuOpen ? 'open' : ''}`}></div>
+          <div className={`bar ${isMenuOpen ? 'open' : ''}`}></div>
+        </div>
+
+        <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+              <a href="#" onClick={toggleDarkMode} className={isDarkMode ? 'on' : ''}>
+                Dark Mode
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

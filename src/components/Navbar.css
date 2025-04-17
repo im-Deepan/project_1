@@ -1,99 +1,59 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
+/* Burger menu icon */
 .burger-icon {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 5px;
   width: 30px;
-  height: 25px;
-  cursor: pointer;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 100;
+  margin: 20px;
 }
 
 .bar {
   height: 4px;
-  width: 100%;
   background-color: black;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: all 0.3s unset;
 }
 
 /* Menu Styles */
 .menu {
-  display:none;
   position: fixed;
   top: 0;
-  right: 0;
-  width: 200px;
-  height: auto;
-  z-index: 99;
-  border: 20 20 20 20;
-  animation: fadeOut 0.3s ease-in;
+  left: -300px;
+  width: 250px;
+  height: 100vh;
+  background-color: white;
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1001;
 }
 
 .menu.open {
-  display:flow-root;
-  float:top;
-  animation: fadeIn 0.3s ease-in;
-}
-.menu.on{
-  background-color: black;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateX(0px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(100);
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translateX(100);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(0px);
-  }
+  left: 0;
 }
 
 .menu ul {
-  list-style-type: none;
-  text-align: center;
-  padding: 10px;
-  margin: 0px;
-  justify-content: space-around;
+  list-style: none;
+  padding: 0;
 }
 
-.menu ul li {
+.menu li {
   margin: 20px 0;
 }
 
-.menu ul li a {
-  color: black;
-  font-size: 18px;
-  text-decoration: none;
+/* Dark mode toggle (optional styling) */
+.menu a.on {
+  color: red;
+
 }
 
-.burger-icon .bar:nth-child(1).open {
-  transform: translateY(9px) rotate(45deg);
-}
-
-.burger-icon .bar:nth-child(2).open {
-  opacity: 0;
-}
-
-.burger-icon .bar:nth-child(3).open {
-  transform: translateY(-9px) rotate(-45deg);
+/* Overlay for blur and blocking clicks */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(1px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
 }
