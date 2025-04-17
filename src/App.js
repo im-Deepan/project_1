@@ -69,13 +69,13 @@ function App() {
       <h1>Task Manager</h1>
       <TaskForm addTask={addTask} />
       <TaskList tasks={tasks} deleteTask={deleteTask} modifyTask={modifyTask} />
-
+      
           <div>
           {
           showInstallBtn && <button onClick={handleInstallClick}>Install App</button>}
         </div>
-      </div>
-  );
+        </div>
+      );
   
 }
 
