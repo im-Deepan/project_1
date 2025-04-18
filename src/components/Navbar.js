@@ -12,7 +12,7 @@ function Navbar() {
     <>
       {/* Overlay for blur and blocking clicks */}
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
-
+      {/*burger icons*/}
       <div className="navbar">
         <div className="burger-icon" onClick={toggleMenu}>
           <div className={`bar ${isMenuOpen ? 'open' : ''}`}></div>
@@ -22,6 +22,7 @@ function Navbar() {
 
         <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
           <ul>
+            <li className ="arrow">Back</li>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
