@@ -22,7 +22,7 @@ function Navbar() {
 
         <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
           <ul>
-            <li className ="arrow">Back</li>
+            <li className ="arrow" onClick={toggleMenu}>Back</li>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
