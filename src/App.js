@@ -4,6 +4,8 @@ import TaskForm from './components/TaskForm';
 import Navbar from './components/Navbar'
 import TaskItem from './components/TaskItem';
 import './App.css';
+import { Analytics } from "@vercel/analytics/react";
+
 function App() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [showInstallBtn, setShowInstallBtn] = useState(false);
